@@ -1,0 +1,23 @@
+ {
+  "name": "more-photo",
+  "version": "0.0.1",
+  "manifest_version": 2,
+    "permissions": ["tabs"],
+  "description": "多图",
+  "browser_action": {
+    "default_icon": "icon.png" ,
+    "default_title": "多图"
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "content_scripts": [
+    {
+      "matches":["<all_urls>"],
+      "css": ["page.css"],
+      "js": ["page2.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources":["toolbox/*", "content.css"]
+}
