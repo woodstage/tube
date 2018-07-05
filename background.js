@@ -12,5 +12,7 @@
 chrome.contextMenus.create({
 	title: "Tube",
 	contexts: ['image'],
-	onclick: function(){debugger;alert('您点击了右键菜单！');}
+	onclick: function (event, tab) {
+	  chrome.tabs.sendMessage(tab.id, "tube_message:" + JSON.stringify({url: event.srcUrl}));
+	}
 });
